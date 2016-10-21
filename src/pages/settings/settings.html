@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>
+            Settings
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-list>
+            <ion-list-header>App Version</ion-list-header>
+            <ion-item>App Name
+                <ion-note item-right>{{appVersion.appName}}</ion-note>
+            </ion-item>
+            <ion-item>Version Code
+                <ion-note item-right>{{appVersion.versionCode}}</ion-note>
+            </ion-item>
+        </ion-list>
+        <ion-list>
+            <ion-list-header>Brightness</ion-list-header>
+            <ion-range [(ngModel)]="brightnessValue" min="0" max="1" (ionChange)="fnChangeBrightness()">
+                <ion-icon range-left small name="sunny"></ion-icon>
+                <ion-icon range-right name="sunny"></ion-icon>
+            </ion-range>
+        </ion-list>
+    </ion-list>
+</ion-content>

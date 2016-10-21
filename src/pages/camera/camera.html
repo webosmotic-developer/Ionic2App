@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>
+            Camera
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-content>
+            <button (click)="fnTakePhoto()" ion-button block>Take Photo</button>
+            <button (click)="fnViewImage()" ion-button block>View Photo</button>
+            <img src="{{imageUrl}}" (click)="fnPhotoViewer()" class="post-image"/>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

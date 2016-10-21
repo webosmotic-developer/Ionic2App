@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>
+            Dial
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <form #callForm="ngForm" (ngSubmit)="callForm.valid && fnCallNumber()" novalidate>
+
+            <ion-item>
+                <ion-input type="number" [(ngModel)]="mobileNo" name="mobileNo" #mobileField="ngModel"
+                           pattern="[0-9]{10}" placeholder="*Enter 10 digit mobile no." required></ion-input>
+            </ion-item>
+
+            <div *ngIf="(callForm.submitted || mobileField.touched) && !mobileField.valid" padding-left>
+                <p *ngIf="mobileField.errors['required']" color="danger">
+                    This field is required.
+                </p>
+
+                <p *ngIf="mobileField.errors['pattern']" color="danger">
+                    This field 10 digits no required.
+                </p>
+            </div>
+
+            <button type="submit" ion-button full>
+                <ion-icon name="call"></ion-icon>
+            </button>
+        </form>
+    </ion-list>
+</ion-content>

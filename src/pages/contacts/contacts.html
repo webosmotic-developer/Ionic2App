@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>
+            Contacts
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="fnSave()">
+                <ion-icon name="add-circle"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+    <ion-grid>
+        <ion-row>
+            <ion-col width-80>
+                <ion-input type="text" [(ngModel)]="contactToBeFound" placeholder="Enter name"></ion-input>
+            </ion-col>
+            <ion-col width-20>
+                <button (click)="fnFind(contactToBeFound)" ion-button block>
+                    <ion-icon name="search"></ion-icon>
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-header>
+
+<ion-content padding>
+    <ion-list [hidden]="!isSearch">
+        <ion-item *ngFor="let item of contactsFound">
+            {{item.displayName}}
+        </ion-item>
+    </ion-list>
+</ion-content>
